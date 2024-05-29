@@ -2,26 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Auto play video
     var video = document.getElementById('bg-video');
     video.play();
-   // Sample menu items
-   const menuItems = [
-    { name: 'Dosa', category: 'Breakfast' },
-    { name: 'Idli', category: 'Breakfast' },
-    { name: '', category: 'Breakfast' },
-    { name: 'Biryani', category: 'Lunch' },
-    { name: 'Curry', category: 'Lunch' },
-    { name: 'Pulao', category: 'Lunch' },
-    { name: 'Rasam', category: 'Dinner' },
-    { name: 'Sambar', category: 'Dinner' },
-    { name: 'Payasam', category: 'Dinner' }
-];
-
-// Function to generate HTML for menu items
-function generateMenuItemHTML(item) {
-    return `<div class="menu-item">
-                <h3>${item.name}</h3>
-                <p>${item.category}</p>
-            </div>`;
-}
+  
 
 // Function to filter and display menu items based on search term
 function filterMenuItems(searchTerm) {

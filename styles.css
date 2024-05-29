@@ -50,18 +50,7 @@ nav ul li a {
     text-align: center;
 }
 
-.search-bar {
-    background-color: #3c4c3d;
-    padding: 20px;
-    text-align: center;
-}
 
-.search-bar input[type="text"] {
-    width: 60%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-}
 
 .video-container {
     position: relative;
