@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="order.css">
+    <title>Confirmation</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Order Confirmation</h1>
+        <p>Your order has been successfully placed!</p>
+        <p>Thank you for shopping with us.</p>
+
+        <div class="bill-details">
+            <h2>Order Details</h2>
+            <p>Total Bill: Rs <span id="total-bill"></span></p>
+            <p>Transaction Method: <span id="transaction-method"></span></p>
+            <p>Estimated Delivery Time: <span id="delivery-time"></span></p>
+        </div>
+
+        <button onclick="goHome()">Back to Home Page</button>
+    </div>
+
+    <script>
+        // JavaScript code for retrieving data and handling the back button
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        const isCashOnDelivery = localStorage.getItem("paymentMethod") === "cash";
+        const upiTransactionId = localStorage.getItem("upiTransactionId");
+
+        // Calculate total bill
+        let totalBill = 0;
+        cartItems.forEach(item => {
+            totalBill += item.price * item.quantity;
+        });
+
+        // Display total bill
+        document.getElementById("total-bill").textContent = totalBill.toFixed(2);
+
+        // Display transaction method
+        document.getElementById("transaction-method").textContent = isCashOnDelivery ? "Cash on Delivery" : "UPI Transaction ID: " + upiTransactionId;
+
+        // Calculate delivery time
+        const deliveryTime = new Date();
+        deliveryTime.setMinutes(deliveryTime.getMinutes() + (isCashOnDelivery ? 30 : 60)); // Adjust delivery time based on payment method
+        const deliveryTimeString = deliveryTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+
+        // Display delivery time
+        document.getElementById("delivery-time").textContent = deliveryTimeString;
+
+        // Function to go back to the home page
+        function goHome() {
+            window.location.href = "menu.html";
+        }
+    </script>
+</body>
+</html>

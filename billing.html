@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bc.css">
+    <title>Billing</title>
+</head>
+<body>
+    <h1>Cart Items</h1>
+    <ul id="cart-items"></ul>
+
+    <h2>Add Item</h2>
+    <label for="item-menu">Select Item:</label>
+    <select id="item-menu">
+        <option value="IDLI">IDLI - Rs 30.00</option>
+        <!-- Other options -->
+    </select>
+    
+    <label for="item-quantity">Quantity:</label>
+    <input type="number" id="item-quantity" min="1" value="1" required>
+    <button onclick="addItem()">Add Item</button>
+
+    <h2>Summary</h2>
+    <p id="total-items">Total Items: 0</p>
+    <p id="total-cost">Total Cost: Rs 0.00</p>
+    
+    <button onclick="checkout()">Proceed to Checkout</button>
+    <button onclick="goHome()">Back to Home Page</button>
+
+    <!-- Payment methods -->
+    <h2>Payment Methods</h2>
+    <label for="payment-cod">Cash on Delivery:</label>
+    <input type="checkbox" id="payment-cod">
+    
+    <label for="payment-upi">UPI Transaction ID:</label>
+    <input type="text" id="payment-upi">
+
+    <script>
+      // Menu prices in Indian Rupees
+const menuPrices = {
+    "IDLI": 30,
+    "DOSA": 40,
+    "UTTAPAM": 80,
+    "PULIYODHARAI": 70,
+    "LEMON-RICE": 70,
+    "KONGU NADU FULL MEALS": 899,
+    "VEG FULL MEALS": 350
+};
+
+        // Retrieve cart items from localStorage
+        let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Display cart items on the page
+        const cartList = document.getElementById("cart-items");
+        const totalItemsElement = document.getElementById("total-items");
+        const totalCostElement = document.getElementById("total-cost");
+
+        function displayCartItems() {
+            cartList.innerHTML = '';
+            let totalItems = 0;
+            let totalCost = 0;
+
+            if (cartItems.length > 0) {
+                cartItems.forEach((item, index) => {
+                    const li = document.createElement("li");
+                    li.textContent = `${item.name} - Rs ${item.price.toFixed(2)} x ${item.quantity}`;
+                    
+                    const removeButton = document.createElement("button");
+                    removeButton.textContent = "Remove";
+                    removeButton.onclick = () => removeItem(index);
+
+                    li.appendChild(removeButton);
+                    cartList.appendChild(li);
+                    totalItems += item.quantity;
+                    totalCost += item.price * item.quantity;
+                });
+            } else {
+                const li = document.createElement("li");
+                li.textContent = "Your cart is empty.";
+                cartList.appendChild(li);
+            }
+
+            totalItemsElement.textContent = `Total Items: ${totalItems}`;
+            totalCostElement.textContent = `Total Cost: Rs ${totalCost.toFixed(2)}`;
+        }
+
+        displayCartItems();
+
+        // Function to add item to the cart
+        function addItem() {
+            const itemName = document.getElementById("item-menu").value;
+            const itemPrice = menuPrices[itemName];
+            const itemQuantity = parseInt(document.getElementById("item-quantity").value);
+
+            if (itemName && itemQuantity > 0) {
+                const existingItemIndex = cartItems.findIndex(item => item.name === itemName);
+
+                if (existingItemIndex > -1) {
+                    cartItems[existingItemIndex].quantity += itemQuantity;
+                } else {
+                    const newItem = {
+                        name: itemName,
+                        price: itemPrice,
+                        quantity: itemQuantity
+                    };
+                    cartItems.push(newItem);
+                }
+
+                localStorage.setItem("cart", JSON.stringify(cartItems));
+                displayCartItems();
+
+                document.getElementById("item-quantity").value = 1;
+            } else {
+                alert("Please select an item and enter a valid quantity.");
+            }
+        }
+
+        // Function to remove item from the cart
+        function removeItem(index) {
+            cartItems.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+            displayCartItems();
+        }
+
+        // Function to proceed with checkout
+        function checkout() {
+            const isCashOnDelivery = document.getElementById("payment-cod").checked;
+            const upiTransactionId = document.getElementById("payment-upi").value;
+
+            if (isCashOnDelivery) {
+                alert("Proceeding with Cash on Delivery...");
+                // Redirect to confirmation page
+                window.location.href = "confirmation.html";
+            } else if (upiTransactionId) {
+                alert("UPI Transaction ID: " + upiTransactionId);
+                // Redirect to confirmation page
+                window.location.href = "confirmation.html";
+            } else {
+                alert("Please select a payment method.");
+            }
+        }
+
+        // Function to go back to the home page
+        function goHome() {
+            window.location.href = "menu.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,40 +1,28 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Simulated menu items data
-    const menuItems = [
-        { name: "IDLI", price: 30, image: "idli.jpg" },
-        { name: "DOSA", price: 40, image: "dosa .jpg" },
-        { name: "UTTAPAM", price: 80, image: "uttapam.jpg" },
-        { name: "PULIYODHARAI", price: 70, image: "Puliyodharai.jpg" },
-        { name: "LEMON RICE", price: 75, image: "lemon-rice.jpg.jpg" },
-        { name: "VEG FULL MEALS", price: 350, image: "veg full meals.jpg" },
-        { name: "KONGU NADU FULL NON VEG MEALS", price: 650, image: "kongu nadu full meal.jpg" },
-        // Add more menu items as needed
-    ];
+function addToCart(itemName, itemPrice) {
+    // Retrieve cart items from localStorage
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-    const menuContainer = document.querySelector(".menu-items");
+    // Check if the item already exists in the cart
+    const existingItemIndex = cartItems.findIndex(item => item.name === itemName);
 
-    menuItems.forEach(item => {
-        const menuItemDiv = document.createElement("div");
-        menuItemDiv.classList.add("menu-item");
-        menuItemDiv.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <h3>${item.name}</h3>
-            <p>$${item.price}</p>
-            <button onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
-        `;
-        menuContainer.appendChild(menuItemDiv);
-    });
-
-    // Function to scroll the menu container to the bottom
-    function scrollMenuToBottom() {
-        menuContainer.scrollTop = menuContainer.scrollHeight;
+    if (existingItemIndex > -1) {
+        // If the item already exists, increment its quantity
+        cartItems[existingItemIndex].quantity += 1;
+    } else {
+        // If the item does not exist, add it to the cart
+        const newItem = {
+            name: itemName,
+            price: itemPrice,
+            quantity: 1
+        };
+        cartItems.push(newItem);
     }
 
-    // Call the function to scroll menu to the bottom
-    scrollMenuToBottom();
-});
+    // Save updated cart items to localStorage
+    localStorage.setItem("cart", JSON.stringify(cartItems));
 
-function addToCart(itemName, price) {
-    // Add functionality to add items to cart
-    console.log("Added to cart:", itemName, price);
+    alert(`${itemName} has been added to your cart.`);
+
+    // Redirect the user to the billing page
+    window.location.href = "billing.html";
 }
