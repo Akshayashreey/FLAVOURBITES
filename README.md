@@ -42,7 +42,6 @@ Namma Veedu Sapadu is a collaborative project aimed at showcasing traditional So
 ![image](https://github.com/Akshayashreey/NAMMA-VEEDU-SAPADU/assets/144884457/1f45ed24-b0ad-4ee9-9f6d-1e2736a9c2e9)
 ![image](https://github.com/Akshayashreey/NAMMA-VEEDU-SAPADU/assets/144884457/90c168e1-6c9f-454b-b7e2-eae6f767064e)
 ![image](https://github.com/Akshayashreey/NAMMA-VEEDU-SAPADU/assets/144884457/db47cfee-67ba-422c-991b-8bd00088d151)
-
 ![image](https://github.com/Akshayashreey/NAMMA-VEEDU-SAPADU/assets/144884457/9e3d4e81-d4eb-45cd-aced-48624d557346)
 ![image](https://github.com/Akshayashreey/NAMMA-VEEDU-SAPADU/assets/144884457/64f68d61-6828-44aa-81f0-cbec3e30927a)
 ![image](https://github.com/Akshayashreey/NAMMA-VEEDU-SAPADU/assets/144884457/2947431d-4204-4de6-9a4f-cb72008d7054)
@@ -54,6 +53,7 @@ Namma Veedu Sapadu is a collaborative project aimed at showcasing traditional So
 ![image](https://github.com/Akshayashreey/NAMMA-VEEDU-SAPADU/assets/144884457/dcca4d27-bcdc-4596-add1-df1f23c8ed28)
 ![image](https://github.com/Akshayashreey/NAMMA-VEEDU-SAPADU/assets/144884457/3f3fe2e5-2d02-4597-9909-d985da848947)
 ![image](https://github.com/Akshayashreey/NAMMA-VEEDU-SAPADU/assets/144884457/63742df3-4bfa-41bb-8627-31329c8b1459)
+![image](https://github.com/Akshayashreey/NAMMA-VEEDU-SAPADU/assets/144884457/e5d85a0e-af80-46e1-a96a-6dd849925e7e)
 
 
 
