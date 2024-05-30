@@ -1,22 +1,30 @@
-// Login form
-const loginForm = document.getElementById("loginForm");
-loginForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    // Add your login logic here
-    console.log("admin@gmail.com", username, "admin123", password);
-    window.location.href = 'menu.html';
-});
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
 
-// Sign up form
-const signupForm = document.getElementById("signupForm");
-signupForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-    const username = document.getElementById("username").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    // Add your sign up logic here
-    console.log("admin", username, "admin@gmail.com", email, "admin123", password); 
-    window.location.href = 'menu.html';
+    // Get input values
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Create a JavaScript object with the form data
+    var userData = {
+        username: username,
+        password: password
+    };
+
+    // Convert JavaScript object to JSON string
+    var jsonData = JSON.stringify(userData);
+
+    // Perform AJAX request to add data to JSON file
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'add_user.php'); // Replace 'add_user.php' with your server-side script URL
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Redirect to menu page after successful data addition
+            window.location.href = 'menu.html'; // Replace 'menu.html' with your menu page URL
+        } else {
+            console.log('Error adding data to JSON file');
+        }
+    };
+    xhr.send(jsonData);
 });
