@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="ls.css">
 </head>
 <body>
-    <h2>Sign Up</h2>
+    
     <form id="signup-form">
+        <center><h2>Sign Up</h2></center>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
         
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
         
-        <button type="submit">Sign Up</button>
+        <button type="submit"><a href="menu.html">Signup</a></button>
     </form>
 
     <script>
@@ -33,8 +34,8 @@
 
     // Store updated signupData in local storage
     localStorage.setItem('signupData', JSON.stringify(signupData));
-
-    alert('Sign up successful!');
+    window.location.href = 'menu.html';
+   
 
     // Clear the form
     document.getElementById('username').value = '';
