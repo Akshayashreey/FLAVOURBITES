@@ -34,8 +34,6 @@
     // Create a temporary anchor element
     var a = document.createElement('a');
     a.href = url;
-    a.download = 'signup_info.txt';
-
     // Programmatically click the anchor element to trigger download
     document.body.appendChild(a);
     a.click();
