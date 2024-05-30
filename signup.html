@@ -4,24 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="ls.css">
 </head>
 <body>
-    <div class="signup-container">
-        <h2>Sign Up</h2>
-        <form id="signupForm">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Sign Up</button>
-            
-        </form>
-        <p>Already have an account? <a href="login.html">Login here</a></p>
-    </div>
+    <h2>Sign Up</h2>
+    <form id="signup-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <button type="button" onclick="saveToFile()">Sign Up</button>
+    </form>
 
-    <script src="ls.js"></script>
+   <script>
+       function saveToFile() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Prepare signup data
+    var signupData = "Username: " + username + "\nPassword: " + password;
+
+    // Create a Blob object with the signup data
+    var blob = new Blob([signupData], { type: "text/plain" });
+
+    // Create a temporary URL for the Blob
+    var url = URL.createObjectURL(blob);
+
+    // Create a temporary anchor element
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'signup_info.txt';
+
+    // Programmatically click the anchor element to trigger download
+    document.body.appendChild(a);
+    a.click();
+
+    // Cleanup
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+   </script>
 </body>
 </html>
