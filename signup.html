@@ -14,35 +14,64 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
         
-        <button type="button" onclick="saveToFile()">Sign Up</button>
+        <button type="submit">Sign Up</button>
     </form>
 
-   <script>
-       function saveToFile() {
+    <script>
+
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+    event.preventDefault();
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    // Prepare signup data
-    var signupData = "Username: " + username + "\nPassword: " + password;
+    // Create or get existing signupData from local storage
+    var signupData = JSON.parse(localStorage.getItem('signupData')) || [];
 
-    // Create a Blob object with the signup data
-    var blob = new Blob([signupData], { type: "text/plain" });
+    // Add new signup info
+    signupData.push({ username: username, password: password });
 
-    // Create a temporary URL for the Blob
-    var url = URL.createObjectURL(blob);
+    // Store updated signupData in local storage
+    localStorage.setItem('signupData', JSON.stringify(signupData));
 
-    // Create a temporary anchor element
-    var a = document.createElement('a');
-    a.href = url;
-    // Programmatically click the anchor element to trigger download
-    document.body.appendChild(a);
-    a.click();
+    alert('Sign up successful!');
 
-    // Cleanup
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Clear the form
+    document.getElementById('username').value = '';
+    document.getElementById('password').value = '';
+});
+function saveToFile() {
+    // Retrieve signupData from local storage
+    var signupData = JSON.parse(localStorage.getItem('signupData'));
+
+    if (signupData && signupData.length > 0) {
+        // Prepare text content for the file
+        var textContent = signupData.map(function(data) {
+            return "Username: " + data.username + ", Password: " + data.password;
+        }).join("\n");
+
+        // Create a Blob object with the text content
+        var blob = new Blob([textContent], { type: "text/plain" });
+
+        // Create a temporary URL for the Blob
+        var url = URL.createObjectURL(blob);
+
+        // Create a temporary anchor element
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'signup_info.txt';
+
+        // Programmatically click the anchor element to trigger download
+        document.body.appendChild(a);
+        a.click();
+
+        // Cleanup
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    } else {
+        alert("No signup data available to save.");
+    }
 }
 
-   </script>
+    </script>
 </body>
 </html>
