@@ -34,19 +34,19 @@ button {
 }
 
 button {
-    background-color: #007bff;
+    background-color: #4c9cf1;
     color: #fff;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #4c9cf1;
 }
 
 a {
     text-decoration: none;
-    color: #007bff;
+    color: #4c9cf1;
 }
 
 a:hover {
