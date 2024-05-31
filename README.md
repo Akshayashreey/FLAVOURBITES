@@ -1,6 +1,6 @@
 # Namma Veedu Sapadu
 
-    Namma Veedu Sapadu is a collaborative project aimed at showcasing traditional South Indian home-cooked meals. The project utilizes frontend technologies such as HTML, CSS, and JavaScript to create an interactive platform for sharing authentic South Indian recipes. Additionally, Azure services such as Azure Static Web Apps, Azure Monitor, Azure Bot Service, and AI language capabilities are integrated to enhance the user experience.
+ Namma Veedu Sapadu is a collaborative project aimed at showcasing traditional South Indian home-cooked meals. The project utilizes frontend technologies such as HTML, CSS, and JavaScript to create an interactive platform for sharing authentic South Indian recipes. Additionally, Azure services such as Azure Static Web Apps, Azure Monitor, Azure Bot Service, and AI language capabilities are integrated to enhance the user experience.
 
 ## Team Collaboration
 
