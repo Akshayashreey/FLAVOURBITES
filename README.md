@@ -30,7 +30,12 @@ Namma Veedu Sapadu is a collaborative project aimed at showcasing traditional So
 - **Community Contributions**: Users can contribute their own recipes and engage with the community.
 - **Azure Integration**: Leveraging Azure services to enhance performance, monitoring, and user engagement.
 
+## Get Started
 
+1. Clone the repository.
+2. Install dependencies (if any).
+3. Run the application locally.
+4. Explore the features and contribute to the project.
 
 
 
