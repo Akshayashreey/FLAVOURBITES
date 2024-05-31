@@ -22,7 +22,13 @@ Namma Veedu Sapadu is a collaborative project aimed at showcasing traditional So
 - Azure Monitor
 - Azure Bot Service
 
+## Features
 
+- **Recipe Collection**: Browse a diverse collection of traditional South Indian recipes.
+- **Step-by-Step Instructions**: Detailed guides for preparing authentic South Indian dishes.
+- **Ingredient Lists**: Access comprehensive ingredient lists for each recipe.
+- **Community Contributions**: Users can contribute their own recipes and engage with the community.
+- **Azure Integration**: Leveraging Azure services to enhance performance, monitoring, and user engagement.
 
 ## Get Started
 
