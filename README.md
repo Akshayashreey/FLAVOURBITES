@@ -27,7 +27,6 @@ Responsibilities:
 
 Manage cloud infrastructure and services.
 Technologies:
-
 Azure Static Web Apps, Azure Monitor, Azure Bot Service.
 Key Deliverables:
 
