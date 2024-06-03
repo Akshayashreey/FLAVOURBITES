@@ -72,7 +72,7 @@ Assign roles and responsibilities.
 ## Design and Development
 Frontend development by Abitha A.
 Setup of cloud infrastructure by Abitha D.
-## Testing
+# Testing
 Akshayashree ensures the application is thoroughly tested.
 Documentation
 Praveen Kumar creates detailed documentation.
