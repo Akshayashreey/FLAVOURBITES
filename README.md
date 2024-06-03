@@ -4,12 +4,12 @@ Flavour Bites is a web-based platform that facilitates the delivery of homemade 
 
 ## Team Roles and Responsibilities
 ## Abitha A - Frontend Developer
-**Responsibilities:**
+  **Responsibilities:**
 Design and implementation of the user interface.
 **Technologies:**
 
 HTML, CSS, JavaScript.
-Key Deliverables:
+**Key Deliverables:**
 
 Responsive and intuitive UI.
 Integration of interactive elements for menu browsing and ordering.
