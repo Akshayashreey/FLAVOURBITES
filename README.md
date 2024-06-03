@@ -44,7 +44,7 @@ User guides and API documentation.
 Documentation of project architecture and design decisions.
 ## Key Features of Flavour Bites
 ## Menu Listings
-Local chefs can list their available dishes.
+Local chefs can list their available dishes. 
 Detailed descriptions, ingredients, and prices.
 ## Order Placement
 Users can place orders for home-cooked meals.
