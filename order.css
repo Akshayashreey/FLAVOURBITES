@@ -1,0 +1,52 @@
+/* Dark Theme Styles */
+
+/* Body */
+body {
+    background-color: #222;
+    color: #fff;
+}
+
+/* Header */
+.header {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Navigation */
+.nav-list li a {
+    color: #fff;
+}
+
+/* Links */
+a {
+    color: #fff;
+}
+
+/* Buttons */
+.btn {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Form Inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+/* Select */
+select {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+}

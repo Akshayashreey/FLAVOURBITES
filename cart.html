@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart - FlavourBites</title>
+    <style>
+        /* Dark Theme Styles */
+        body {
+            background-color: #2c2c2c;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .cart-header {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #1e1e1e;
+        }
+
+        .cart-header h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cart-content {
+            padding: 60px 20px;
+            background-color: #1e1e1e;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .cart-item h3 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .cart-item p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .total {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .checkout-button {
+            background-color: #2ecc71;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+            display: block;
+        }
+
+        .checkout-button:hover {
+            background-color: #27ae60;
+        }
+
+        .back-to-menu {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-to-menu a {
+            background-color: #f39c12;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-menu a:hover {
+            background-color: #e67e22;
+        }
+
+        .remove-item {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function renderCart() {
+            const cartContent = document.querySelector('.cart-content');
+            cartContent.innerHTML = '';
+            let totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            let totalPrice = cartItems.reduce((sum, item) => sum + item.total, 0);
+
+            cartItems.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="${item.img}" alt="${item.name}">
+                    <div>
+                        <h3>${item.name}</h3>
+                        <p>₹${item.price} x ${item.quantity}</p>
+                    </div>
+                    <div>
+                        <p>Total: ₹${calculateTotalPrice(item.price, item.quantity)}</p>
+                        <span class="remove-item" onclick="removeItem(${item.id})">&#10006;</span>
+                    </div>
+                `;
+                cartContent.appendChild(cartItem);
+            });
+
+            const total = document.createElement('div');
+            total.className = 'total';
+            total.innerHTML = `
+                <p>Total Items: ${totalQuantity}</p>
+                ${totalPrice ? `<p>Total Cost: ₹${totalPrice}</p>` : ''}
+            `;
+            cartContent.appendChild(total);
+
+            const checkoutButton = document.createElement('div');
+            checkoutButton.className = 'checkout-button';
+            checkoutButton.innerText = 'Proceed to Checkout';
+            checkoutButton.onclick = proceedToCheckout;
+            cartContent.appendChild(checkoutButton);
+        }
+
+        function calculateTotalPrice(price, quantity) {
+            return price * quantity;
+        }
+
+        function removeItem(id) {
+            cartItems = cartItems.filter(item => item.id !== id);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            renderCart();
+        }
+
+        function proceedToCheckout() {
+            localStorage.setItem('order', JSON.stringify(cartItems));
+            window.location.href = 'checkout.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCart);
+    </script>
+</head>
+
+<body>
+    <header class="cart-header">
+        <h1>Shopping Cart</h1>
+    </header>
+    <main class="cart-content">
+        <!-- Cart content will be rendered here by JavaScript -->
+    </main>
+    <div class="back-to-menu">
+        <a href="menu.html">Back to Menu</a>
+    </div>
+</body>
+
+</html>

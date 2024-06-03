@@ -1,0 +1,163 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0c0c0c;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 20px 0;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #faf8f8; /* Adjust the color as needed */
+    font-size: 300%;/* Adjust the font size as needed */
+    margin-left: 10px; /* Add spacing between the image and text */
+}
+
+.logo img {
+    width: 50px; /* Adjust the width of the logo image as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.nav {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content:center;
+    gap: 100px;
+}
+
+.nav-list li a {
+    color: #f6f2f2;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+    color: #ffffff;
+}
+
+
+
+/* Section Styles */
+.section-title {
+    color: #ff6600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-text {
+    flex: 0 1 50%;
+    margin-bottom: 20px;
+}
+
+.about-images {
+    flex: 0 1 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-images img {
+    width: 45%;
+}
+
+.achievements-content,
+.history-content,
+.feedbacks-content {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.achievements-content ul {
+    padding-left: 0;
+}
+
+.achievements-content ul li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.feedbacks-content .feedback {
+    background-color: rgba(249, 233, 233, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.footer {
+    background-color: #111111;
+    padding: 40px 0;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer h3 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.social-media ul {
+    padding-left: 0;
+}
+
+.social-media ul li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.social-media ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+
+.legal-links ul {
+    padding-left: 0;
+}
+
+.legal-links ul li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.legal-links ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+}
+
