@@ -103,6 +103,9 @@ Continuous monitoring and updates.
 ![Screenshot 2024-06-04 061105](https://github.com/Akshayashreey/FLAVOURBITES/assets/125624572/6c9e0fcf-421a-41a0-8c4a-b555c0230181)
 
 ![Screenshot 2024-06-04 061316](https://github.com/Akshayashreey/FLAVOURBITES/assets/125624572/6b7f0503-5f13-4cf4-b092-c8a860e7893c)
+ 
+
+
 
 
 
